@@ -14,7 +14,7 @@ public class PersonController {
 
 
     private final PersonService personService;
-    @Autowired
+
     public PersonController(PersonService personService) {
         this.personService = personService;
     }
@@ -29,14 +29,14 @@ public class PersonController {
         return personService.selectAllPeople();
     }
 
-    @GetMapping(path = "{id}")
-    public Person getPersonById(@PathVariable("id") UUID id){
+    @GetMapping(path = "{personUuid}")
+    public Person getPersonById(@PathVariable("personUuid") UUID id){
         return personService.getPersonById(id)
                 .orElse(null);
     }
 
-    @DeleteMapping(path = "{id}")
-    public void deletePersonById(@PathVariable("id") UUID id){
+    @DeleteMapping(path = "{personUuid}")
+    public void deletePersonById(@PathVariable("personUuid") UUID id){
         personService.deletePerson(id);
     }
 

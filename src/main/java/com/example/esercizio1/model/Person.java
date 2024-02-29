@@ -12,8 +12,11 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String name;
+    private String surname;
 
-    public Person(@JsonProperty("id") UUID id, @JsonProperty("name") String name) {
+    private Integer profId;
+
+    public Person(@JsonProperty("id") UUID id, @JsonProperty("name") String name,@JsonProperty("surname") String surname) {
         this.name = name;
         this.id = id;
     }
@@ -24,5 +27,8 @@ public class Person {
     }
     public String getName(){
         return name;
+    }
+    public String getSurname(){
+        return surname;
     }
 }
