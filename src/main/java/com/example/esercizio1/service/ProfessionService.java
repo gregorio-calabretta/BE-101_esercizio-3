@@ -9,15 +9,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProfessionService {
     private final ProfessionRepository professionRepository;
-
-    public ProfessionService( ProfessionRepository professionRepository) {
+    private final PersonRepository personRepository;
+    public ProfessionService(ProfessionRepository professionRepository, PersonRepository personRepository) {
         this.professionRepository = professionRepository;
+        this.personRepository = personRepository;
     }
 
-    public Profession (Person person){
-      return  professionRepository.findProfessionByPersonNameSurname(person.getName(), person.getSurname());
+    public Profession addProfession(Profession profession){
+        return professionRepository.save(profession);
     }
 
 
 
+    public Profession findByNameAndSurname(String name, String surname) {
+        Person person = personRepository.findByNameAndSurname(name,surname);
+        return person.getProfession();
+    }
+
+    public Profession getProfessionById(Integer id) {
+        return professionRepository.findById(id).orElse(null);
+    }
 }

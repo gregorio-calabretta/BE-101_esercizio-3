@@ -12,10 +12,9 @@ public class Profession {
     @Id
     private Integer id;
     private String name;
-     private UUID personId;
 
 
-    public Profession(@JsonProperty Integer id,@JsonProperty String name,UUID personId) {
+    public Profession(@JsonProperty Integer id,@JsonProperty String name) {
         this.id = id;
         this.name = name;
     }
@@ -23,7 +22,6 @@ public class Profession {
     public Profession(){};
 
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
     private List<Person> person;
 
     public int getId() {

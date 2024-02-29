@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.util.UUID;
+
 @Entity
 @Table(name = "person")
 public class Person {
@@ -14,11 +15,12 @@ public class Person {
     private String name;
     private String surname;
 
-    private Integer profId;
+    @ManyToOne
+    private Profession profession;
 
-    public Person(@JsonProperty("id") UUID id, @JsonProperty("name") String name,@JsonProperty("surname") String surname) {
+    public Person(String name, String surname) {
         this.name = name;
-        this.id = id;
+        this.surname = surname;
     }
     public Person() {
     }
@@ -31,4 +33,15 @@ public class Person {
     public String getSurname(){
         return surname;
     }
+
+    public Profession getProfession() {
+        return profession;
+    }
+
+    public void addProfession(Profession profession){
+        this.profession = profession;
+    }
+
+
+
 }

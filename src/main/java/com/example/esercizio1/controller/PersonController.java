@@ -1,5 +1,6 @@
 package com.example.esercizio1.controller;
 
+import com.example.esercizio1.dto.PersonDto;
 import com.example.esercizio1.model.Person;
 import com.example.esercizio1.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class PersonController {
     }
 
     @PostMapping
-    public void addPerson(@RequestBody Person person){
+    public void addPerson(@RequestBody PersonDto person){
         personService.addPerson(person);
     }
 

@@ -2,12 +2,17 @@ package com.example.esercizio1.repository;
 
 import com.example.esercizio1.model.Profession;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface ProfessionRepository extends JpaRepository<Profession,Integer> {
+   /* @Query
+    Profession findProfessionByPersonNameAndSurname(String name,String surname);
+*/
+   Profession save(Profession profession);
+    List<Profession> findAll();
 
-    Profession findProfessionByPersonNameSurname(String name,String surname);
-
+    Profession findByName(String profession);
 }
