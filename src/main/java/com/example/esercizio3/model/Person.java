@@ -1,7 +1,5 @@
-package com.example.esercizio1.model;
+package com.example.esercizio3.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.util.UUID;

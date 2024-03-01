@@ -1,8 +1,8 @@
-package com.example.esercizio1.controller;
+package com.example.esercizio3.controller;
 
-import com.example.esercizio1.dto.PersonDto;
-import com.example.esercizio1.model.Person;
-import com.example.esercizio1.service.PersonService;
+import com.example.esercizio3.dto.PersonDto;
+import com.example.esercizio3.model.Person;
+import com.example.esercizio3.service.PersonService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
