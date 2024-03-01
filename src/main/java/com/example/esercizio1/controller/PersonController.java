@@ -3,7 +3,6 @@ package com.example.esercizio1.controller;
 import com.example.esercizio1.dto.PersonDto;
 import com.example.esercizio1.model.Person;
 import com.example.esercizio1.service.PersonService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,8 +25,8 @@ public class PersonController {
     }
 
     @GetMapping
-    public List<Person> selectAllPeople(){
-        return personService.selectAllPeople();
+    public List<Person> getAllPeople(){
+        return personService.getAllPeople();
     }
 
     @GetMapping(path = "{personUuid}")

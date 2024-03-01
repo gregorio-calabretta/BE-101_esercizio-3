@@ -5,7 +5,6 @@ import com.example.esercizio1.model.Profession;
 import com.example.esercizio1.repository.PersonRepository;
 import com.example.esercizio1.model.Person;
 import com.example.esercizio1.repository.ProfessionRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,14 +21,13 @@ public class PersonService {
         this.professionRepository = professionRepository;
     }
 
-    public Person addPerson(PersonDto personDto){
+    public void addPerson(PersonDto personDto){
         Person person = new Person(personDto.getName(),personDto.getSurname());
         Profession profession = professionRepository.findByName(personDto.getProfession());
         person.addProfession(profession);
-        return personRepository.save(person);
-
+        personRepository.save(person);
     }
-    public List<Person> selectAllPeople(){
+    public List<Person> getAllPeople(){
         return personRepository.findAll();
     }
 

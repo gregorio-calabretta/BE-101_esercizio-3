@@ -18,12 +18,15 @@ public class Person {
     @ManyToOne
     private Profession profession;
 
-    public Person(String name, String surname) {
+    public Person(String name, String surname ) {
         this.name = name;
         this.surname = surname;
+
     }
     public Person() {
     }
+
+
     public UUID getId() {
         return id;
     }

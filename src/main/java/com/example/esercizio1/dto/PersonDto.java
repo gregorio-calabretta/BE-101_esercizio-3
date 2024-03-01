@@ -1,10 +1,6 @@
 package com.example.esercizio1.dto;
 
-import com.example.esercizio1.model.Profession;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.ManyToOne;
-
-import java.util.UUID;
 
 public class PersonDto {
     private String name;

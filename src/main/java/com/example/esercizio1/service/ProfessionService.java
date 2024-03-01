@@ -6,6 +6,8 @@ import com.example.esercizio1.repository.PersonRepository;
 import com.example.esercizio1.repository.ProfessionRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProfessionService {
     private final ProfessionRepository professionRepository;
@@ -15,8 +17,8 @@ public class ProfessionService {
         this.personRepository = personRepository;
     }
 
-    public Profession addProfession(Profession profession){
-        return professionRepository.save(profession);
+    public void addProfession(Profession profession){
+         professionRepository.save(profession);
     }
 
 
@@ -29,4 +31,9 @@ public class ProfessionService {
     public Profession getProfessionById(Integer id) {
         return professionRepository.findById(id).orElse(null);
     }
+
+    public List<Profession> getAllProfessions(){
+        return professionRepository.findAll();
+    }
+
 }

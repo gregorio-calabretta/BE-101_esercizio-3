@@ -8,10 +8,8 @@ import java.util.List;
 
 @Repository
 public interface ProfessionRepository extends JpaRepository<Profession,Integer> {
-   /* @Query
-    Profession findProfessionByPersonNameAndSurname(String name,String surname);
-*/
-   Profession save(Profession profession);
+
+    Profession save(Profession profession);
     List<Profession> findAll();
 
     Profession findByName(String profession);
