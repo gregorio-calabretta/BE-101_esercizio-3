@@ -1,4 +1,4 @@
-package com.example.esercizio1.dto;
+package com.example.esercizio3.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

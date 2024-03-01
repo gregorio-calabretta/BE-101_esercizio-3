@@ -1,10 +1,9 @@
-package com.example.esercizio1.model;
+package com.example.esercizio3.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Table(name = "profession")
