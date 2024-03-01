@@ -1,8 +1,10 @@
 package com.example.esercizio1.service;
 
+import com.example.esercizio1.dto.PersonDto;
+import com.example.esercizio1.model.Profession;
 import com.example.esercizio1.repository.PersonRepository;
 import com.example.esercizio1.model.Person;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.esercizio1.repository.ProfessionRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,15 +14,20 @@ import java.util.UUID;
 @Service
 public class PersonService {
     private final PersonRepository personRepository;
+    private final ProfessionRepository professionRepository;
 
-    public PersonService( PersonRepository personRepository) {
+    public PersonService(PersonRepository personRepository, ProfessionRepository professionRepository) {
         this.personRepository = personRepository;
+        this.professionRepository = professionRepository;
     }
 
-    public Person addPerson(Person person){
-        return personRepository.save(person);
+    public void addPerson(PersonDto personDto){
+        Person person = new Person(personDto.getName(),personDto.getSurname());
+        Profession profession = professionRepository.findByName(personDto.getProfession());
+        person.addProfession(profession);
+        personRepository.save(person);
     }
-    public List<Person> selectAllPeople(){
+    public List<Person> getAllPeople(){
         return personRepository.findAll();
     }
 

@@ -1,8 +1,8 @@
 package com.example.esercizio1.controller;
 
+import com.example.esercizio1.dto.PersonDto;
 import com.example.esercizio1.model.Person;
 import com.example.esercizio1.service.PersonService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,29 +14,29 @@ public class PersonController {
 
 
     private final PersonService personService;
-    @Autowired
+
     public PersonController(PersonService personService) {
         this.personService = personService;
     }
 
     @PostMapping
-    public void addPerson(@RequestBody Person person){
+    public void addPerson(@RequestBody PersonDto person){
         personService.addPerson(person);
     }
 
     @GetMapping
-    public List<Person> selectAllPeople(){
-        return personService.selectAllPeople();
+    public List<Person> getAllPeople(){
+        return personService.getAllPeople();
     }
 
-    @GetMapping(path = "{id}")
-    public Person getPersonById(@PathVariable("id") UUID id){
+    @GetMapping(path = "{personUuid}")
+    public Person getPersonById(@PathVariable("personUuid") UUID id){
         return personService.getPersonById(id)
                 .orElse(null);
     }
 
-    @DeleteMapping(path = "{id}")
-    public void deletePersonById(@PathVariable("id") UUID id){
+    @DeleteMapping(path = "{personUuid}")
+    public void deletePersonById(@PathVariable("personUuid") UUID id){
         personService.deletePerson(id);
     }
 
